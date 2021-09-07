@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmailInboxXamarin.Views.AddEmailPage"
+             BackgroundColor="White">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Enviar" Command="{Binding AddCommand}"/>
+    </ContentPage.ToolbarItems>
+    
+   <StackLayout  >
+        <Entry  Text="{Binding From}" TextColor="black" PlaceholderColor="Gray" Placeholder="De:" />
+        <Entry  Text="{Binding Title}" TextColor="black" PlaceholderColor="Gray" Placeholder="Titulo:"/>
+        <Entry  Text="{Binding Description}" TextColor="black" PlaceholderColor="Gray" Placeholder="Asunto:"/>
+        <Editor Text="{Binding Content}" TextColor="black" PlaceholderColor="Gray" BackgroundColor="#FBF7F6" HeightRequest = "500" Placeholder="Redacta tu correo..."/>
+
+    </StackLayout>
+</ContentPage>

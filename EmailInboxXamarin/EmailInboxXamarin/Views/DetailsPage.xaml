@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmailInboxXamarin.Views.DetailsPage"
+             BackgroundColor="White"
+             Title="{Binding Mail.Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label  Text="{Binding Mail.From}" TextColor="Black" Margin="10"/>
+            <Label  Text="{Binding Mail.Description}" TextColor="Black" FontAttributes="Bold" Margin="10"/>
+            <Label  Text="{Binding Mail.Date}" TextColor="Gray" FontAttributes="Italic" Margin="10"/>
+            <Label  Text="{Binding Mail.Content}" TextColor="Black" FontAttributes="Italic" Margin="10"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

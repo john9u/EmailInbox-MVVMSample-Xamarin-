@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmailInboxXamarin.Views.InboxPage"
+             xmlns:viewModels="clr-namespace:EmailInboxXamarin.ViewModels"
+             BackgroundColor="White"
+             x:Name="inboxPage">
+    <ContentPage.BindingContext>
+        <viewModels:InboxViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ListView
+        CachingStrategy="RecycleElement"
+        HasUnevenRows="True"
+        ItemsSource="{Binding Mails}"
+        SelectedItem="{Binding SelectedMail}"
+        SeparatorColor="Black"
+        BackgroundColor="white">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Borrar" Command="{Binding Source={x:Reference inboxPage}, Path= BindingContext.DeleteCommand}" 
+                                  CommandParameter="{Binding}"/>
+                    </ViewCell.ContextActions>
+                        <StackLayout Padding="5">
+                        <Label  Text="{Binding From}" TextColor="Black"/>
+                        <Label  Text="{Binding Title}" TextColor="Black" FontAttributes="Bold"/>
+                        <Label  Text="{Binding Description}" TextColor="Black"/>
+                        <Label  Text="{Binding Date}" TextColor="Gray" FontAttributes="Italic"/>
+                    </StackLayout>                    
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        
+        
+    </ListView>
+    
+</ContentPage>
